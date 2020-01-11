@@ -9,14 +9,13 @@ describe("App", () => {
 
 	beforeEach(() => (wrapper = shallow(<App />)));
 
-	it("should render correctly", () => {
-		expect(wrapper).toMatchSnapshot();
-	});
-
 	it("must exists", () => {
 		expect(wrapper.find("div.app-container").length).toBe(1);
 	});
 
+	it("should render correctly", () => {
+		expect(wrapper).toMatchSnapshot();
+	});
 
 	it("should contain <Tools /> and <Display /> component", () => {
 		expect(wrapper.containsMatchingElement(<Tools />)).toBe(true);

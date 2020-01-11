@@ -1,13 +1,49 @@
+/* app vaiables */
+:root {
+	/* containers position and dimensions */
+	--main-areas-template: "display tools";
+	--main-columns-template: 3fr 1fr;
+
+	/* display aspect*/
+	--display-padding: 15px;
+
+	/* tool aspect */
+	--tool-background-color: #959595;
+	--tool-padding: 10px;
+	--tool-width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+	:root {
+		/* containers position*/
+		--main-areas-template: "display" "tools";
+		--main-columns-template: 1fr;
+
+		/* display aspect*/
+		--display-padding: 3px;
+	}
+}
+
+/*
+app CSS reset
+*/
+body,
+div,
+p {
+	margin: 0;
+	padding: 0;
+}
+
+/* Global Styles */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+		"Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
 }

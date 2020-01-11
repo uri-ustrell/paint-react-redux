@@ -1,0 +1,12 @@
+.paint-tools {
+	grid-area: tools;
+	display: flex;
+	flex-flow: column nowrap;
+	width: var(--tools-container-width);
+}
+
+.paint-tools > div {
+	padding: var(--tool-padding);
+	width: var(--tool-width);
+	background-color: var(--tool-background-color);
+}

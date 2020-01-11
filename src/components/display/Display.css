@@ -1,0 +1,7 @@
+.paint-display {
+	grid-area: display;
+	width: var(--display-width);
+	padding: var(--display-padding);
+	display: flex;
+	justify-content: center;
+}

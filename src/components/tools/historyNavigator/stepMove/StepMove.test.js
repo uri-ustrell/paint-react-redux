@@ -10,4 +10,8 @@ describe("StepMove component", () => {
 	it("must exists", () => {
 		expect(wrapper.find("div.paint-history-stepMove").length).toBe(1);
 	});
+
+	it("should render correctly", () => {
+		expect(wrapper).toMatchSnapshot();
+	});
 });

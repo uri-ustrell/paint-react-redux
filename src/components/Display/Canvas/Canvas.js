@@ -1,113 +1,78 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import { Stage, Layer, Image } from "react-konva";
+import { Stage, Layer, Line } from "react-konva";
+import "./Canvas.css";
 
-class Drawing extends Component {
+class Canvas extends Component {
 	constructor(props) {
 		super(props);
 		this.props = props;
-		/**
-		 * color
-		 * size
-		 * */
+	}
+
+	componentDidMount() {
+		this.stage = this.stageRef.getStage();
+		this.stage.setContainer("stage-parent");
 	}
 
 	state = {
-		isDrawing: false,
-		mode: "brush"
+		lines: [],
+		isDrawing: false
 	};
 
-	componentDidMount() {
-		const canvas = document.createElement("canvas");
-		canvas.width = 700;
-		canvas.height = 700;
-		const context = canvas.getContext("2d");
-
-		this.setState({ canvas, context });
-	}
-
 	handleMouseDown = () => {
-		console.log("mousedown");
-		this.setState({ isDrawing: true });
+		// add line
+		this.setState({
+			lines: [...this.state.lines, []],
+			isDrawing: true
+		});
+	};
 
-		// TODO: improve
-		const stage = this.image.parent.parent;
-		this.lastPointerPosition = stage.getPointerPosition();
+	handleMouseMove = e => {
+		// no drawing - skipping
+		if (!this.state.isDrawing) {
+			return;
+		}
+
+		const point = this.stage.getPointerPosition();
+		const { lines } = this.state;
+
+		let lastLine = lines[lines.length - 1];
+		// add point
+		lastLine = lastLine.concat([point.x, point.y]);
+
+		// replace last
+		lines.splice(lines.length - 1, 1, lastLine);
+		this.setState({
+			lines: lines.concat()
+		});
 	};
 
 	handleMouseUp = () => {
-		console.log("mouseup");
-		this.setState({ isDrawing: false });
-	};
-
-	handleMouseMove = () => {
-		// console.log('mousemove');
-		const { context, isDrawing, mode } = this.state;
-
-		if (isDrawing) {
-			console.log("drawing");
-
-			// TODO: Don't always get a new context
-			context.strokeStyle = "#df4b26";
-			context.lineJoin = "round";
-			context.lineWidth = 5;
-
-			if (mode === "brush") {
-				context.globalCompositeOperation = "source-over";
-			} else if (mode === "eraser") {
-				context.globalCompositeOperation = "destination-out";
-			}
-			context.beginPath();
-
-			var localPos = {
-				x: this.lastPointerPosition.x - this.image.x(),
-				y: this.lastPointerPosition.y - this.image.y()
-			};
-			console.log("moveTo", localPos);
-			context.moveTo(localPos.x, localPos.y);
-
-			// TODO: improve
-			const stage = this.image.parent.parent;
-
-			var pos = stage.getPointerPosition();
-			localPos = {
-				x: pos.x - this.image.x(),
-				y: pos.y - this.image.y()
-			};
-			console.log("lineTo", localPos);
-			context.lineTo(localPos.x, localPos.y);
-			context.closePath();
-			context.stroke();
-			this.lastPointerPosition = pos;
-			this.image.getLayer().draw();
-		}
+		this.setState({
+			isDrawing: false
+		});
 	};
 
 	render() {
-		const { canvas } = this.state;
-		console.log("canvas", canvas);
-
 		return (
-			<Image
-				image={canvas}
-				ref={node => (this.image = node)}
+			<Stage
 				width={700}
 				height={700}
-				stroke="blue"
-				onMouseDown={this.handleMouseDown}
-				onMouseUp={this.handleMouseUp}
-				onMouseMove={this.handleMouseMove}
-			/>
+				onContentMousedown={this.handleMouseDown}
+				onContentMousemove={this.handleMouseMove}
+				onContentMouseup={this.handleMouseUp}
+				ref={node => {
+					this.stageRef = node;
+				}}
+			>
+				<Layer>
+					{this.state.lines.map((line, i) => (
+						<Line key={i} points={line} stroke="red" />
+					))}
+				</Layer>
+			</Stage>
 		);
 	}
 }
-
-const Canvas = (props) => (
-	<Stage width={700} height={700}>
-		<Layer>
-			<Drawing /* props *//>
-		</Layer>
-	</Stage>
-);
 
 export default Canvas;

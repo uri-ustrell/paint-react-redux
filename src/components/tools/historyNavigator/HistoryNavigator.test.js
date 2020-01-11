@@ -17,7 +17,6 @@ describe("HistoryNavigator component", () => {
 	});
 
 	it("should render 2 <StepMove /> components", () => {
-		//wrapper = mount(<HistoryNavigator />);
 		expect(wrapper.find(StepMove).length).toBe(2);
 	});
 });

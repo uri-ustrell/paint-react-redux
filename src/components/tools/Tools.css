@@ -10,3 +10,7 @@
 	width: var(--tool-width);
 	background-color: var(--tool-background-color);
 }
+
+.tool-btn {
+	cursor: pointer;
+}

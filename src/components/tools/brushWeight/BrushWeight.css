@@ -1,2 +1,4 @@
 .paint-brushWeight {
+	display: flex;
+	flex-flow: column nowrap;
 }

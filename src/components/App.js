@@ -1,13 +1,11 @@
 import React from "react";
-import Canvas from "./Display/Canvas/Canvas";
+import Tools from "./tools/Tools";
 import "./App.css";
 
-function App() {
-	return (
-		<div className="App">
-			<Canvas />
-		</div>
-	);
-}
+const App = () => (
+	<div className="app-container">
+		<Tools />
+	</div>
+);
 
 export default App;

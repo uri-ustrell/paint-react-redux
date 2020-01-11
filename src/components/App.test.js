@@ -1,9 +1,23 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { shallow } from "enzyme";
+import App from "./App";
+import Tools from "./tools/Tools";
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("App", () => {
+	let wrapper;
+
+	beforeEach(() => (wrapper = shallow(<App />)));
+
+	it("should render correctly", () => {
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it("must exists", () => {
+		expect(wrapper.find("div.app-container").length).toBe(1);
+	});
+
+
+	it("should contain <Tools /> component", () => {
+		expect(wrapper.containsMatchingElement(<Tools />)).toBe(true);
+	});
 });

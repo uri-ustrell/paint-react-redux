@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tools Component should render correctly 1`] = `
+<div
+  className="paint-tools"
+>
+  <Palette />
+</div>
+`;

@@ -2,6 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import App from "./App";
 import Tools from "./tools/Tools";
+import Display from "./display/Display";
 
 describe("App", () => {
 	let wrapper;
@@ -17,7 +18,8 @@ describe("App", () => {
 	});
 
 
-	it("should contain <Tools /> component", () => {
+	it("should contain <Tools /> and <Display /> component", () => {
 		expect(wrapper.containsMatchingElement(<Tools />)).toBe(true);
+		expect(wrapper.containsMatchingElement(<Display />)).toBe(true);
 	});
 });

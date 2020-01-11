@@ -17,7 +17,7 @@ describe("App", () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it("should contain <Tools /> and <Display /> component", () => {
+	it("should contain <Tools /> and <Display /> components", () => {
 		expect(wrapper.containsMatchingElement(<Tools />)).toBe(true);
 		expect(wrapper.containsMatchingElement(<Display />)).toBe(true);
 	});

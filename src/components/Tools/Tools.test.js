@@ -2,6 +2,8 @@ import React from "react";
 import { shallow } from "enzyme";
 import Tools from "./Tools";
 import Palette from "./palette/Palette";
+import BrushWeight from "./brushWeight/BrushWeight";
+import HistoryNavigator from "./historyNavigator/HistoryNavigator";
 
 describe("Tools Component", () => {
 	let wrapper;
@@ -16,7 +18,11 @@ describe("Tools Component", () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it("should render <Palette /> component", () => {
+	it("should render <HistoryNavigator />, <Palette />, <BrushWeight /> components", () => {
+		expect(wrapper.containsMatchingElement(<HistoryNavigator />)).toEqual(
+			true
+		);
 		expect(wrapper.containsMatchingElement(<Palette />)).toEqual(true);
+		expect(wrapper.containsMatchingElement(<BrushWeight />)).toEqual(true);
 	});
 });

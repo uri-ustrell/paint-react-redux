@@ -10,4 +10,8 @@ describe("BrushWeight component", () => {
 	it("must exists", () => {
 		expect(wrapper.find("div.paint-brushWeight").length).toBe(1);
 	});
+
+	it("shuold render correctly", () => {
+		expect(wrapper).toMatchSnapshot();
+	});
 });

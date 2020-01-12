@@ -10,4 +10,8 @@ describe("WeightOption component", () => {
 	it("must exists", () => {
 		expect(wrapper.find("div.paint-brush-weightOption").length).toBe(1);
 	});
+
+	it("should render correctly", () => {
+		expect(wrapper).toMatchSnapshot();
+	});
 });

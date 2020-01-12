@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Palette from "./Palette";
+import Color from "./color/Color";
 
 describe("Palette component", () => {
 	let wrapper;
@@ -15,5 +16,9 @@ describe("Palette component", () => {
 
 	it("should render correctly", () => {
 		expect(wrapper).toMatchSnapshot();
+	});
+
+	it("should render colors", () => {
+		expect(wrapper.containsMatchingElement(<Color />));
 	});
 });

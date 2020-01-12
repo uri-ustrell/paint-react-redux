@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
-import App from "./App";
-import Tools from "./tools/Tools";
-import Display from "./display/Display";
+import App from "../components/App";
+import Tools from "../components/tools/Tools";
+import Display from "../components/display/Display";
 
 describe("App", () => {
 	let wrapper;

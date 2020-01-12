@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import WeightOption from "./WeightOption";
+import WeightOption from "../components/tools/brushWeight/weightOption/WeightOption";
 
 describe("WeightOption component", () => {
 	let wrapper;

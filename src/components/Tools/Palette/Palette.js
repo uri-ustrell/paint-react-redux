@@ -5,7 +5,7 @@ import "./Palette.css";
 const Palette = () => (
 	<div className="paint-palette">
 		{[...Array(20)].map((_, i) => (
-			<Color />
+			<Color key={i} />
 		))}
 	</div>
 );

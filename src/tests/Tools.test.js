@@ -1,9 +1,9 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Tools from "./Tools";
-import Palette from "./palette/Palette";
-import BrushWeight from "./brushWeight/BrushWeight";
-import HistoryNavigator from "./historyNavigator/HistoryNavigator";
+import Tools from "../components/tools/Tools";
+import Palette from "../components/tools/palette/Palette";
+import BrushWeight from "../components/tools/brushWeight/BrushWeight";
+import HistoryNavigator from "../components/tools/historyNavigator/HistoryNavigator";
 
 describe("Tools Component", () => {
 	let wrapper;

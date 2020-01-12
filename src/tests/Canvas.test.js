@@ -1,5 +1,5 @@
 import React from "react";
-import Canvas from "./Canvas";
+import Canvas from "../components/display/canvas/Canvas";
 import { cleanup, render } from "@testing-library/react";
 
 describe("Canvas component", () => {

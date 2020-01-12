@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Display from "./Display";
-import Canvas from "./canvas/Canvas";
+import Display from "../components/display/Display";
+import Canvas from "../components/display/canvas/Canvas";
 
 describe("Display component", () => {
 	let wrapper;

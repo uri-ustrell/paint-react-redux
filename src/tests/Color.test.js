@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Color from "./Color";
+import Color from "../components/tools/palette/color/Color";
 
 describe("Color component", () => {
 	let wrapper;

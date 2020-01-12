@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import StepMove from "./StepMove";
+import StepMove from "../components/tools/historyNavigator/stepMove/StepMove";
 
 describe("StepMove component", () => {
 	let wrapper;

@@ -9,5 +9,4 @@ const Display = () => (
 		</div>
 	</div>
 );
-
 export default Display;

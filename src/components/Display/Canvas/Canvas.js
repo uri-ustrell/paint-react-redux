@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+// eslint-disable-next-line
 import { render } from "react-dom";
+import PropTypes from "prop-types";
 import { Stage, Layer, Line } from "react-konva";
+import { saveLines, loadLines } from "../../../redux/actions/canvasActions";
+
 import "./Canvas.css";
 
 class Canvas extends Component {
@@ -9,20 +14,22 @@ class Canvas extends Component {
 		this.props = props;
 	}
 
-	componentDidMount() {
-		this.stage = this.stageRef.getStage();
-		this.stage.setContainer("stage-parent");
-	}
-
 	state = {
-		lines: [],
+		lines: this.props.lines || [],
 		isDrawing: false
 	};
 
+	componentDidMount() {
+		this.stage = this.stageRef.getStage();
+		this.stage.setContainer("stage-parent");
+		loadLines();
+	}
+
 	handleMouseDown = () => {
+		//this.props.loadLines();
 		// add line
 		this.setState({
-			lines: [...this.state.lines, []],
+			lines: [...this.props.lines, {}],
 			isDrawing: true
 		});
 	};
@@ -37,17 +44,26 @@ class Canvas extends Component {
 		const { lines } = this.state;
 
 		let lastLine = lines[lines.length - 1];
+
 		// add point
-		lastLine = lastLine.concat([point.x, point.y]);
+		lastLine.points = lastLine.points
+			? [...lastLine.points, point.x, point.y]
+			: [point.x, point.y];
+		lastLine.color = this.props.brushColor;
 
 		// replace last
-		lines.splice(lines.length - 1, 1, lastLine);
+		const newLines = lines.map(
+			(line, i) => (i === lines.length - 1 && lastLine) || line
+		);
+
 		this.setState({
-			lines: lines.concat()
+			lines: newLines
 		});
 	};
 
 	handleMouseUp = () => {
+		this.props.saveLines(this.state.lines);
+
 		this.setState({
 			isDrawing: false
 		});
@@ -56,8 +72,8 @@ class Canvas extends Component {
 	render() {
 		return (
 			<Stage
-				width={700}
-				height={700}
+				width={window.innerWidth * 0.75}
+				height={window.innerHeight * 0.9}
 				onContentMousedown={this.handleMouseDown}
 				onContentMousemove={this.handleMouseMove}
 				onContentMouseup={this.handleMouseUp}
@@ -67,7 +83,11 @@ class Canvas extends Component {
 			>
 				<Layer>
 					{this.state.lines.map((line, i) => (
-						<Line key={i} points={line} stroke="red" />
+						<Line
+							key={i}
+							points={line.points}
+							stroke={line.color}
+						/>
 					))}
 				</Layer>
 			</Stage>
@@ -75,4 +95,22 @@ class Canvas extends Component {
 	}
 }
 
-export default Canvas;
+Canvas.propTypes = {
+	brushColor: PropTypes.string.isRequired,
+	lines: PropTypes.array.isRequired
+};
+
+const mapStateToProps = (state /*, ownProps */) => {
+	console.log("Canvas", state);
+	return {
+		brushColor: state.brush.color,
+		lines: state.canvas.lines
+	};
+};
+
+const mapDispatchToProps = {
+	saveLines,
+	loadLines
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Canvas);

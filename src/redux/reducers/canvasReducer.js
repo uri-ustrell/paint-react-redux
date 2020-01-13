@@ -1,13 +1,14 @@
 import initialState from "./initialState";
+import * as types from "../actions/actionTypes";
 
 export default function canvasReducer(state = initialState.canvas, action) {
 	const historyPast = state.history.past,
 		historyFuture = state.history.future;
 	let futureLines, pastLines;
 	switch (action.type) {
-		case "LOAD_CANVAS_LINES":
+		case types.LOAD_CANVAS_LINES:
 			return state;
-		case "SAVE_CANVAS_LINES":
+		case types.SAVE_CANVAS_LINES:
 			pastLines = [...action.lines];
 			futureLines = [];
 
@@ -20,7 +21,7 @@ export default function canvasReducer(state = initialState.canvas, action) {
 					future: { ...historyFuture, lines: futureLines }
 				}
 			};
-		case "HISTORY_CANVAS_STEPS_BACK":
+		case types.HISTORY_CANVAS_STEPS_BACK:
 			if (historyPast.lines.length === 0) return state;
 			pastLines = state.lines.filter(
 				(_, i, ls) => i < ls.length - action.steps
@@ -41,7 +42,7 @@ export default function canvasReducer(state = initialState.canvas, action) {
 					future: { ...historyFuture, lines: futureLines }
 				}
 			};
-		case "HISTORY_CANVAS_STEPS_FORWARD":
+		case types.HISTORY_CANVAS_STEPS_FORWARD:
 			if (historyFuture.lines.length === 0) return state;
 			pastLines = [
 				...historyPast.lines,

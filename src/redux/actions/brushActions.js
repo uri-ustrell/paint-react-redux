@@ -1,9 +1,11 @@
+import * as types from "./actionTypes";
+
 export const selectBrushColor = selectedColor => ({
-	type: "SELECT_BRUSH_COLOR",
+	type: types.SELECT_BRUSH_COLOR,
 	selectedColor
 });
 
 export const selectBrushWeight = selectedWeight => ({
-	type: "SELECT_BRUSH_WEIGHT",
+	type: types.SELECT_BRUSH_WEIGHT,
 	selectedWeight
 });

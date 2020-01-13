@@ -1,10 +1,11 @@
 import initialState from "./initialState";
+import * as types from "../actions/actionTypes";
 
 export default function paletteReducer(state = initialState.palette, action) {
 	switch (action.type) {
-		case "SELECT_PALETTE_COLOR":
+		case types.SELECT_PALETTE_COLOR:
 			return { ...state, selectedColor: action.selectedColor };
-		case "LOAD_PALETTE_COLORS":
+		case types.LOAD_PALETTE_COLORS:
 			return { ...state, colors: [...state.colors, ...action.colors] };
 		default:
 			return state;

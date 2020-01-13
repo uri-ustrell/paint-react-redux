@@ -1,9 +1,11 @@
+import * as types from "./actionTypes";
+
 export const selectWeight = selectedWeight => ({
-	type: "SELECT_WEIGHT",
+	type: types.SELECT_WEIGHT,
 	selectedWeight
 });
 
 export const loadWeights = () => ({
-	type: "LOAD_WEIGHTS",
+	type: types.LOAD_WEIGHTS,
 	weights: []
 });

@@ -1,19 +1,21 @@
+import * as types from "./actionTypes";
+
 export const saveLines = lines => ({
-	type: "SAVE_CANVAS_LINES",
+	type: types.SAVE_CANVAS_LINES,
 	lines: lines
 });
 
 export const loadLines = () => ({
-	type: "LOAD_CANVAS_LINES",
+	type: types.LOAD_CANVAS_LINES,
 	lines: []
 });
 
 export const canvasHistoryStepBack = () => ({
-	type: "HISTORY_CANVAS_STEPS_BACK",
+	type: types.HISTORY_CANVAS_STEPS_BACK,
 	steps: 1
 });
 
 export const canvasHistoryStepForward = () => ({
-	type: "HISTORY_CANVAS_STEPS_FORWARD",
+	type: types.HISTORY_CANVAS_STEPS_FORWARD,
 	steps: 1
 });

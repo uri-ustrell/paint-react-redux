@@ -21,6 +21,11 @@ export class Canvas extends Component {
 	componentDidMount() {
 		this.stage = this.stageRef.getStage();
 		this.stage.setContainer("stage-parent");
+		/* mobile screen */
+		this.stage.on("touchstart", this.handleMouseDown);
+		this.stage.on("touchmove", this.handleMouseMove);
+		this.stage.on("touchend", this.handleMouseUp);
+		/* ------------- */
 	}
 
 	componentDidUpdate(prevProps) {
@@ -98,6 +103,7 @@ export class Canvas extends Component {
 							points={line.points}
 							stroke={line.color}
 							strokeWidth={line.weight}
+							lineCap="round"
 						/>
 					))}
 				</Layer>
@@ -114,14 +120,11 @@ Canvas.propTypes = {
 	loadLines: PropTypes.func.isRequired
 };
 
-const mapStateToProps = (state /*, ownProps */) => {
-	console.log("Canvas", state);
-	return {
-		brushColor: state.brush.color,
-		lines: state.canvas.lines,
-		brushWeight: state.brush.weight
-	};
-};
+const mapStateToProps = (state /*, ownProps */) => ({
+	brushColor: state.brush.color,
+	lines: state.canvas.lines,
+	brushWeight: state.brush.weight
+});
 
 const mapDispatchToProps = {
 	saveLines,

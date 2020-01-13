@@ -21,11 +21,15 @@ export class Canvas extends Component {
 	componentDidMount() {
 		this.stage = this.stageRef.getStage();
 		this.stage.setContainer("stage-parent");
+	}
+
+	componentDidUpdate(prevProps) {
 		loadLines();
+		if (this.props.lines.length !== prevProps.lines.length)
+			this.setState({ lines: this.props.lines });
 	}
 
 	handleMouseDown = () => {
-		//this.props.loadLines();
 		// add line
 		this.setState({
 			lines: [...this.props.lines, {}],

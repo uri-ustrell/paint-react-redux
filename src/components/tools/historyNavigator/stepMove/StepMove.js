@@ -1,6 +1,10 @@
 import React from "react";
 import "./StepMove.css";
 
-const StepMove = () => <div className="paint-history-stepMove tool-btn"></div>;
+const StepMove = ({ handleClick, icon }) => (
+	<div className="paint-history-stepMove tool-btn" onClick={handleClick}>
+		{icon}
+	</div>
+);
 
 export default StepMove;

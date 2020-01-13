@@ -30,7 +30,11 @@ const initialState = {
 		weight: 8
 	},
 	canvas: {
-		lines: [{ points: [], color: "#000", weight: 15 }]
+		lines: [{ points: [], color: "#000", weight: 15 }],
+		history: {
+			past: { lines: [] },
+			future: { lines: [] }
+		}
 	}
 };
 

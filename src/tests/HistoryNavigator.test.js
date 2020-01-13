@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import HistoryNavigator from "../components/tools/historyNavigator/HistoryNavigator";
+import { HistoryNavigator } from "../components/tools/historyNavigator/HistoryNavigator";
 import StepMove from "../components/tools/historyNavigator/stepMove/StepMove";
 
 describe("HistoryNavigator component", () => {

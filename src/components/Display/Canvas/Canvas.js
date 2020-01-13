@@ -49,6 +49,7 @@ export class Canvas extends Component {
 			? [...lastLine.points, point.x, point.y]
 			: [point.x, point.y];
 		lastLine.color = this.props.brushColor;
+		lastLine.weight = this.props.brushWeight;
 
 		// replace last
 		const newLines = lines.map(
@@ -71,8 +72,14 @@ export class Canvas extends Component {
 	render() {
 		return (
 			<Stage
-				width={window.innerWidth * 0.75}
-				height={window.innerHeight * 0.9}
+				width={
+					(window.innerWidth > 1024 && window.innerWidth * 0.75) ||
+					window.innerWidth
+				}
+				height={
+					(window.innerWidth > 1024 && window.innerHeight * 0.9) ||
+					window.innerHeight * 0.5
+				}
 				onContentMousedown={this.handleMouseDown}
 				onContentMousemove={this.handleMouseMove}
 				onContentMouseup={this.handleMouseUp}
@@ -86,7 +93,7 @@ export class Canvas extends Component {
 							key={i}
 							points={line.points}
 							stroke={line.color}
-							strokeWidth={5}
+							strokeWidth={line.weight}
 						/>
 					))}
 				</Layer>
@@ -97,6 +104,7 @@ export class Canvas extends Component {
 
 Canvas.propTypes = {
 	brushColor: PropTypes.string.isRequired,
+	brushWeight: PropTypes.number.isRequired,
 	lines: PropTypes.array.isRequired,
 	saveLines: PropTypes.func.isRequired,
 	loadLines: PropTypes.func.isRequired
@@ -106,7 +114,8 @@ const mapStateToProps = (state /*, ownProps */) => {
 	console.log("Canvas", state);
 	return {
 		brushColor: state.brush.color,
-		lines: state.canvas.lines
+		lines: state.canvas.lines,
+		brushWeight: state.brush.weight
 	};
 };
 

@@ -19,17 +19,18 @@ const initialState = {
 			{ id: 16, hex: "#DC7633" },
 			{ id: 17, hex: "#99A3A4" },
 			{ id: 18, hex: "#5D6D7E" },
-			{ id: 19, hex: "#1B2631" },
+			{ id: 19, hex: "#1b2631" },
 			{ id: 20, hex: "#ffffff" }
 		],
 		selectedColor: { id: 19, hex: "#1B2631" }
 	},
+	weights: { all: [3, 6, 9, 12], selectedWeight: 6 },
 	brush: {
 		color: "#1B2631",
 		weight: 8
 	},
 	canvas: {
-		lines: [{ points: [], color: "#000" }]
+		lines: [{ points: [], color: "#000", weight: 15 }]
 	}
 };
 

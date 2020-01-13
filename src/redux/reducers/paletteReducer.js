@@ -5,7 +5,7 @@ export default function paletteReducer(state = initialState.palette, action) {
 		case "SELECT_PALETTE_COLOR":
 			return { ...state, selectedColor: action.selectedColor };
 		case "LOAD_PALETTE_COLORS":
-			return { ...state, ...action.colors };
+			return { ...state, colors: [...state.colors, ...action.colors] };
 		default:
 			return state;
 	}

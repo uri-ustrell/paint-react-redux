@@ -6,7 +6,10 @@ import "./Color.css";
 const Color = ({ color, isSelected, handleOnClick }) => (
 	<div
 		className="paint-palette-color tool-btn"
-		style={{ backgroundColor: color, color: "white" }}
+		style={{
+			backgroundColor: color,
+			color: color === "#ffffff" && "#1b2631"
+		}}
 		onClick={handleOnClick}
 	>
 		{isSelected && <Icon icon={faCheck} />}

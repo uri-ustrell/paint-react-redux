@@ -1,11 +1,13 @@
 import React from "react";
 import { Canvas } from "../components/display/canvas/Canvas";
 import { cleanup, render } from "@testing-library/react";
+import initialState from "../redux/reducers/initialState";
 
 describe("Canvas component", () => {
 	const defaultProps = {
-		brushColor: "",
-		lines: [],
+		brushColor: initialState.brush.color,
+		lines: initialState.canvas.lines,
+		brushWeight: initialState.brush.weight,
 		saveLines: jest.fn(),
 		loadLines: jest.fn()
 	};

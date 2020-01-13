@@ -8,9 +8,9 @@
 	--display-padding: 15px;
 
 	/* tool aspect */
-	--tool-background-color: #959595;
+	--tool-background-color: #fff;
 	--tool-padding: 10px;
-	--tool-width: 100%;
+	--tool-width: 90%;
 }
 
 @media screen and (max-width: 1024px) {

@@ -45,21 +45,22 @@ describe("Palette component", () => {
 
 		it("should load colors if colors array is empty", () => {
 			wrapper = _render({ colors: [] });
+			const { loadPaletteColors } = wrapper.props();
 
 			jest.spyOn(React, "useEffect").mockImplementation(f => f());
-			expect(defaultProps.loadPaletteColors).toHaveBeenCalled();
+			expect(loadPaletteColors).toHaveBeenCalled();
 		});
 
 		it("should call selectPaletteColor() & selectBrushColor() methods on color click", () => {
 			wrapper = _render();
-
+			const { selectBrushColor, selectPaletteColor } = wrapper.props();
 			wrapper
 				.find(Color)
 				.at(0)
 				.simulate("click");
 
-			expect(wrapper.props().selectBrushColor).toHaveBeenCalled();
-			expect(wrapper.props().selectPaletteColor).toHaveBeenCalled();
+			expect(selectBrushColor).toHaveBeenCalled();
+			expect(selectPaletteColor).toHaveBeenCalled();
 		});
 	});
 });

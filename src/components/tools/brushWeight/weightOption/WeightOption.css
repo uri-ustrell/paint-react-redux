@@ -1,4 +1,13 @@
 .paint-brush-weightOption {
 	background: lightgrey;
 	width: 100% !important;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+}
+
+.paint-weightOption-line {
+	width: 70%;
+	background-color: #1b2631;
+	margin-right: 10px;
 }

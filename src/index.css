@@ -15,12 +15,21 @@
 
 @media screen and (max-width: 1024px) {
 	:root {
-		/* containers position*/
+		/* containers position & dimensions*/
 		--main-areas-template: "display" "tools";
 		--main-columns-template: 1fr;
+		--tool-width: 30%;
 
 		/* display aspect*/
 		--display-padding: 3px;
+	}
+	/*mobile scroll*/
+	html,
+	body {
+		overflow: hidden;
+	}
+	body {
+		position: relative;
 	}
 }
 

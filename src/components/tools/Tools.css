@@ -1,7 +1,7 @@
 .paint-tools {
 	grid-area: tools;
 	display: flex;
-	flex-flow: column nowrap;
+	flex-flow: row wrap;
 	width: var(--tools-container-width);
 }
 
@@ -16,4 +16,18 @@
 	margin: 5px;
 	width: 30px;
 	height: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+	.paint-tools > div.paint-historyNavigator {
+		width: 10%;
+	}
+
+	.paint-tools > div.paint-palette {
+		width: 60%;
+	}
+
+	.paint-tools > div.paint-brushWeight {
+		width: 15%;
+	}
 }

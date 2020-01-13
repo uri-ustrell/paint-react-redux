@@ -9,7 +9,7 @@ import {
 } from "../../../redux/actions/paletteActions";
 import "./Palette.css";
 
-const Palette = ({
+export const Palette = ({
 	selectedColor,
 	colors,
 	selectBrushColor,
@@ -23,7 +23,6 @@ const Palette = ({
 	});
 
 	const selectColor = color => {
-		console.log("I selected a color");
 		selectPaletteColor(color);
 		selectBrushColor(color.hex);
 	};

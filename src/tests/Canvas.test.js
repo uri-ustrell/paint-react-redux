@@ -1,8 +1,15 @@
 import React from "react";
-import Canvas from "../components/display/canvas/Canvas";
+import { Canvas } from "../components/display/canvas/Canvas";
 import { cleanup, render } from "@testing-library/react";
 
 describe("Canvas component", () => {
+	const defaultProps = {
+		brushColor: "",
+		lines: [],
+		saveLines: jest.fn(),
+		loadLines: jest.fn()
+	};
+
 	beforeEach(() => {
 		cleanup();
 	});
@@ -10,7 +17,7 @@ describe("Canvas component", () => {
 	it("must exists", () => {
 		const { container } = render(
 			<div id="stage-parent">
-				<Canvas />
+				<Canvas {...defaultProps} />
 			</div>
 		);
 		expect(container.querySelectorAll(".konvajs-content")).toHaveLength(1);

@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// eslint-disable-next-line
-import { render } from "react-dom";
+import { render } from "react-dom"; //eslint-disable-line no-unused-vars
 import PropTypes from "prop-types";
 import { Stage, Layer, Line } from "react-konva";
 import { saveLines, loadLines } from "../../../redux/actions/canvasActions";
 
 import "./Canvas.css";
 
-class Canvas extends Component {
+export class Canvas extends Component {
 	constructor(props) {
 		super(props);
 		this.props = props;
@@ -87,6 +86,7 @@ class Canvas extends Component {
 							key={i}
 							points={line.points}
 							stroke={line.color}
+							strokeWidth={5}
 						/>
 					))}
 				</Layer>
@@ -97,7 +97,9 @@ class Canvas extends Component {
 
 Canvas.propTypes = {
 	brushColor: PropTypes.string.isRequired,
-	lines: PropTypes.array.isRequired
+	lines: PropTypes.array.isRequired,
+	saveLines: PropTypes.func.isRequired,
+	loadLines: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state /*, ownProps */) => {

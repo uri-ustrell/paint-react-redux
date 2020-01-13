@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/paint-react-redux/static/css/main.c2e13e45.chunk.css",
-    "main.js": "/paint-react-redux/static/js/main.12765685.chunk.js",
-    "main.js.map": "/paint-react-redux/static/js/main.12765685.chunk.js.map",
+    "main.js": "/paint-react-redux/static/js/main.0ac2460e.chunk.js",
+    "main.js.map": "/paint-react-redux/static/js/main.0ac2460e.chunk.js.map",
     "runtime-main.js": "/paint-react-redux/static/js/runtime-main.5b7037f2.js",
     "runtime-main.js.map": "/paint-react-redux/static/js/runtime-main.5b7037f2.js.map",
     "static/js/2.332de2d5.chunk.js": "/paint-react-redux/static/js/2.332de2d5.chunk.js",
     "static/js/2.332de2d5.chunk.js.map": "/paint-react-redux/static/js/2.332de2d5.chunk.js.map",
     "index.html": "/paint-react-redux/index.html",
-    "precache-manifest.33bff06e6a1d11055b7cfa7b2bed5bcf.js": "/paint-react-redux/precache-manifest.33bff06e6a1d11055b7cfa7b2bed5bcf.js",
+    "precache-manifest.8a9c2d2e67330414f4b4f2974a01b09e.js": "/paint-react-redux/precache-manifest.8a9c2d2e67330414f4b4f2974a01b09e.js",
     "service-worker.js": "/paint-react-redux/service-worker.js",
     "static/css/main.c2e13e45.chunk.css.map": "/paint-react-redux/static/css/main.c2e13e45.chunk.css.map",
     "static/js/2.332de2d5.chunk.js.LICENSE": "/paint-react-redux/static/js/2.332de2d5.chunk.js.LICENSE"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.5b7037f2.js",
     "static/js/2.332de2d5.chunk.js",
     "static/css/main.c2e13e45.chunk.css",
-    "static/js/main.12765685.chunk.js"
+    "static/js/main.0ac2460e.chunk.js"
   ]
 }

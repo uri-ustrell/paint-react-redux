@@ -169,7 +169,8 @@ Retoque de estylos para responsive, fijo el scroll para mobile i...
 
 # GAME OVER
 
-## _credits_ (¿Dónde y qué falta mejorar?)
+## _credits_ 
+### (¿Dónde y qué falta mejorar?)
 
 1. Tests: 
 Es evidente que alguno es redundante, aunque tiene su razón en mi cabeza :D. Además, he procurado dejar suficientes para que se vea por dónde voy, pero faltaría bastante en este campo, he procurado dejar ejemplos de todo, pero faltarían tests de :Dispatchers, reducers, click-events, etc.

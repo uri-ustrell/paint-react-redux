@@ -6,7 +6,14 @@ import StepMove from "../components/tools/historyNavigator/stepMove/StepMove";
 describe("HistoryNavigator component", () => {
 	let wrapper;
 
-	beforeEach(() => (wrapper = shallow(<HistoryNavigator />)));
+	const defaultProps = {
+		canvasHistoryStepBack: jest.fn(),
+		canvasHistoryStepForward: jest.fn()
+	};
+
+	beforeEach(
+		() => (wrapper = shallow(<HistoryNavigator {...defaultProps} />))
+	);
 
 	it("must exists", () => {
 		expect(wrapper.find("div.paint-historyNavigator").length).toBe(1);

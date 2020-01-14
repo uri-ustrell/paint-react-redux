@@ -186,5 +186,5 @@ El módulo brushWeight no debería llamarse así, siguiendo la lógica final de 
 4. Mobile / Responsive: 
 Ahora mismo no está bien optimizada para pantallas pequeñas. Viéndolo en perspectiva, redefiniría y haría un lienzo de toda la pantalla con las opciones desplegables en float buttons. Aun así, sin este desarrollo, he procurado dejarlo bastante estable para una pantalla más tipo tablet (que mobil).
 
-- Estilos:
+5. Estilos:
 Faltaria reunificar apropiadamente estilos y media queries que pueden estar mejor estructurados.
